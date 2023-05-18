@@ -12,9 +12,9 @@ import env from '@config/env'
 const CartSidebarView: FC<{showCheckoutButton:boolean}> = ({showCheckoutButton=true}) => {
   const checkoutUrl = useCheckoutUrl()
   const cart = useCart()
+  const [totalTax, setTotalTax] = useState("0.00");
+  const [paymentDue, setPaymentDue] = useState("0.00");
   const subTotal = cart?.subtotalPrice
-  const totalTax = cart.totalTax
-  const paymentDue = cart.paymentDue
   console.log('!!cart.attrs',cart?.attrs)
 
   const items = cart?.lineItems ?? []
@@ -35,6 +35,8 @@ const CartSidebarView: FC<{showCheckoutButton:boolean}> = ({showCheckoutButton=t
       setCartUpsell(cartUpsellContent)
     }
     fetchContent()
+    setTotalTax(cart.totalTax || "0.00")
+    setPaymentDue(cart.paymentDue || "0.00")
   }, [cart?.lineItems])
 
   return (
