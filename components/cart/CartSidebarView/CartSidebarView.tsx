@@ -9,7 +9,7 @@ import CartItem from '../CartItem'
 import { BuilderComponent, builder } from '@builder.io/react'
 import env from '@config/env'
 
-const CartSidebarView: FC = ({showCheckoutButton=true}) => {
+const CartSidebarView: FC<{showCheckoutButton:boolean}> = ({showCheckoutButton=true}) => {
   const checkoutUrl = useCheckoutUrl()
   const cart = useCart()
   const subTotal = cart?.subtotalPrice
