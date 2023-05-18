@@ -71,7 +71,7 @@ const CartItem = ({
       <div
         sx={{
           padding: 1,
-          border: '1px solid gray',
+          // border: '1px solid gray',
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
@@ -134,7 +134,7 @@ const CartItem = ({
           </li>
           {item.variant.selectedOptions.map((option: any) => (
             <li key={option.value}>
-              {option.name}:{option.value}
+              {/*{option.name}:{option.value}*/}
             </li>
           ))}
         </ul>

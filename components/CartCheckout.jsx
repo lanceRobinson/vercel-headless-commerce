@@ -6,6 +6,7 @@ import {loadStripe} from "@stripe/stripe-js";
 import {Elements} from "@stripe/react-stripe-js";
 import {useCart} from '../lib/shopify/storefront-data-hooks'
 import {Grid, jsx} from 'theme-ui'
+import {Box} from "@theme-ui/components";
 
 
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY);
@@ -59,15 +60,15 @@ export default function Cart() {
   };
 
   return (
-    <div>
+    <Box>
       {showProducts && products?.length > 0 ? (
-        <Grid gap={1} columns={3} sx={{ my: 3 }}>
+        <Grid gap={6} columns={2} >
 
-          <CartSidebarView/>
+          <CartSidebarView showCheckoutButton={false}/>
 
           {clientSecret && (
             <Elements options={options} stripe={stripePromise}>
-              <Payment/>
+              <Payment clientSecret={clientSecret}/>
             </Elements>
           )}
         </Grid>
@@ -76,6 +77,6 @@ export default function Cart() {
           No products to show! Get shopping!
         </div>
       )}
-    </div>
+    </Box>
   );
 }

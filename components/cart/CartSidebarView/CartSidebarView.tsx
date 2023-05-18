@@ -9,10 +9,12 @@ import CartItem from '../CartItem'
 import { BuilderComponent, builder } from '@builder.io/react'
 import env from '@config/env'
 
-const CartSidebarView: FC = () => {
+const CartSidebarView: FC = ({showCheckoutButton=true}) => {
   const checkoutUrl = useCheckoutUrl()
   const cart = useCart()
   const subTotal = cart?.subtotalPrice
+  const totalTax = cart?.totalTax
+  const paymentDue = cart?.paymentDue
   const total = ' - '
 
   const items = cart?.lineItems ?? []
@@ -39,7 +41,7 @@ const CartSidebarView: FC = () => {
     <Box
       sx={{
         height: '100%',
-        overflow: 'auto',
+        overflow: 'visable',
         paddingBottom: 5,
         bg: 'text',
         display: 'flex',
@@ -73,25 +75,26 @@ const CartSidebarView: FC = () => {
               <Text>Subtotal:</Text>
               <Text sx={{ marginLeft: 'auto' }}>{subTotal}</Text>
               <Text>Shipping:</Text>
-              <Text sx={{ marginLeft: 'auto' }}> - </Text>
+              <Text sx={{ marginLeft: 'auto' }}> Free </Text>
               <Text>Tax: </Text>
-              <Text sx={{ marginLeft: 'auto' }}> - </Text>
+              <Text sx={{ marginLeft: 'auto' }}> {totalTax} </Text>
             </Grid>
 
             <Divider />
             <Grid gap={1} columns={2}>
               <Text variant="bold">Estimated Total:</Text>
               <Text variant="bold" sx={{ marginLeft: 'auto' }}>
-                {total}
+                {paymentDue}
               </Text>
             </Grid>
           </Card>
           <BuilderComponent content={cartUpsell} model="cart-upsell-sidebar" />
-          {checkoutUrl && (
+          {checkoutUrl && showCheckoutButton && (
             <NavLink
               variant="nav"
               sx={{ width: '100%', m: 2, p: 12, textAlign: 'center' }}
-              href={checkoutUrl!}
+              href={'/checkout'}
+              // href={checkoutUrl!}
             >
               Proceed to Checkout
             </NavLink>

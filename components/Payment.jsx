@@ -6,7 +6,7 @@ import {
     useElements
 } from "@stripe/react-stripe-js";
 
-export default function Payment() {
+export default function Payment(props) {
     const stripe = useStripe();
     const elements = useElements();
 
@@ -18,11 +18,11 @@ export default function Payment() {
         if (!stripe) {
             return;
         }
-
-        const clientSecret = new URLSearchParams(window.location.search).get(
-            "payment_intent_client_secret"
-        );
-
+        const clientSecret = props.clientSecret
+        // const clientSecret = new URLSearchParams(window.location.search).get(
+        //     "payment_intent_client_secret"
+        // );
+        console.log('clientSecret', clientSecret)
         if (!clientSecret) {
             return;
         }
@@ -60,7 +60,7 @@ export default function Payment() {
             elements,
             confirmParams: {
                 // Make sure to change this to your payment completion page
-                return_url: "/",
+                return_url: "https://vercel-headless-commerce.vercel.app/checkout-success",
             },
         });
 
@@ -89,6 +89,7 @@ export default function Payment() {
                 onChange={(e) => setEmail(e.target.value)}
             />
             <PaymentElement id="payment-element" options={paymentElementOptions} />
+
             <button disabled={isLoading || !stripe || !elements} id="submit">
         <span id="button-text">
           {isLoading ? <div className="spinner" id="spinner"></div> : "Pay now"}
