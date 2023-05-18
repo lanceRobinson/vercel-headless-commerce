@@ -37,7 +37,7 @@ const CartSidebarView: FC<{showCheckoutButton:boolean}> = ({showCheckoutButton=t
     fetchContent()
     setTotalTax(cart.totalTax || "0.00")
     setPaymentDue(cart.paymentDue || "0.00")
-  }, [cart?.lineItems])
+  }, [cart, cart?.lineItems])
 
   return (
     <Box
