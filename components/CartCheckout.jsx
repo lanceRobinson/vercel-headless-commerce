@@ -1,5 +1,5 @@
 import {FC, useState, useEffect} from "react";
-// import CheckoutForm from "./CheckoutForm";
+import CheckoutForm from "./CheckoutForm";
 import CartSidebarView from "./cart/CartSidebarView";
 // import CartTotal from "./CartTotal";
 import {loadStripe} from "@stripe/stripe-js";
@@ -67,7 +67,7 @@ export default function Cart() {
 
           {clientSecret && (
             <Elements options={options} stripe={stripePromise}>
-              {/*<CheckoutForm/>*/}
+              <CheckoutForm/>
             </Elements>
           )}
         </Grid>
