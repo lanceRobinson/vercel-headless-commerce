@@ -13,9 +13,9 @@ const CartSidebarView: FC<{showCheckoutButton:boolean}> = ({showCheckoutButton=t
   const checkoutUrl = useCheckoutUrl()
   const cart = useCart()
   const subTotal = cart?.subtotalPrice
-  const totalTax = cart?.totalTax
+  const totalTax = cart?.totalTax ?? "0.00"
   const paymentDue = cart?.paymentDue
-  const total = ' - '
+  console.log('!!cart',cart)
 
   const items = cart?.lineItems ?? []
   const isEmpty = items.length === 0
