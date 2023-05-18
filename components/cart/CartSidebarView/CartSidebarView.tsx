@@ -12,8 +12,8 @@ import env from '@config/env'
 const CartSidebarView: FC<{showCheckoutButton:boolean}> = ({showCheckoutButton=true}) => {
   const checkoutUrl = useCheckoutUrl()
   const cart = useCart()
-  const [totalTax, setTotalTax] = useState("0.00");
-  const [paymentDue, setPaymentDue] = useState("0.00");
+  // const [totalTax, setTotalTax] = useState("0.00");
+  // const [paymentDue, setPaymentDue] = useState("0.00");
   const subTotal = cart?.subtotalPrice
   console.log('!!cart.attrs',cart?.attrs)
 
@@ -35,8 +35,8 @@ const CartSidebarView: FC<{showCheckoutButton:boolean}> = ({showCheckoutButton=t
       setCartUpsell(cartUpsellContent)
     }
     fetchContent()
-    setTotalTax(cart.totalTax || "0.00")
-    setPaymentDue(cart.paymentDue || "0.00")
+    // setTotalTax(cart.totalTax || "0.00")
+    // setPaymentDue(cart.paymentDue || "0.00")
   }, [cart, cart?.lineItems])
 
   return (
@@ -79,14 +79,14 @@ const CartSidebarView: FC<{showCheckoutButton:boolean}> = ({showCheckoutButton=t
               <Text>Shipping:</Text>
               <Text sx={{ marginLeft: 'auto' }}> Free </Text>
               <Text>Tax: </Text>
-              <Text sx={{ marginLeft: 'auto' }}> {totalTax} </Text>
+              <Text sx={{ marginLeft: 'auto' }}> {0.00} </Text>
             </Grid>
 
             <Divider />
             <Grid gap={1} columns={2}>
               <Text variant="bold">Estimated Total:</Text>
               <Text variant="bold" sx={{ marginLeft: 'auto' }}>
-                {paymentDue}
+                {subTotal}
               </Text>
             </Grid>
           </Card>
