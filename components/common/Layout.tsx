@@ -96,7 +96,7 @@ const InnerLayout: React.FC<{
         }
         onClose={closeSidebar}
       >
-        <CartSidebarView />
+        <CartSidebarView showCheckoutButton={true}/>
       </Sidebar>
       <NoSSR>
         <FeatureBar
