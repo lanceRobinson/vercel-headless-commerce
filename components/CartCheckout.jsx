@@ -1,7 +1,7 @@
 import {FC, useState, useEffect} from "react";
-import CheckoutForm from "./CheckoutForm";
+// import CheckoutForm from "./CheckoutForm";
 import CartSidebarView from "./cart/CartSidebarView";
-import CartTotal from "./CartTotal";
+// import CartTotal from "./CartTotal";
 import {loadStripe} from "@stripe/stripe-js";
 import {Elements} from "@stripe/react-stripe-js";
 import {useCart} from '../lib/shopify/storefront-data-hooks'
@@ -67,7 +67,7 @@ export default function Cart() {
 
           {clientSecret && (
             <Elements options={options} stripe={stripePromise}>
-              <CheckoutForm/>
+              {/*<CheckoutForm/>*/}
             </Elements>
           )}
         </Grid>
