@@ -52,6 +52,8 @@
     "@radix-ui/react-dialog": "^1.0.2",
     "@reach/dialog": "^0.18.0",
     "@reach/portal": "0.14.0",
+    "@stripe/react-stripe-js": "^2.1.0",
+    "@stripe/stripe-js": "^1.53.0",
     "@theme-ui/components": "0.15.5",
     "@theme-ui/match-media": "0.15.5",
     "@theme-ui/preset-base": "0.15.5",
@@ -67,6 +69,7 @@
     "react-dom": "18.2.0",
     "react-spring": "^9.6.1",
     "shopify-buy": "2.16.1",
+    "stripe": "^12.5.0",
     "theme-ui": "0.15.5",
     "traverse": "0.6.7"
   },
