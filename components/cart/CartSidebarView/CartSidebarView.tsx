@@ -43,9 +43,9 @@ const CartSidebarView: FC<{showCheckoutButton:boolean}> = ({showCheckoutButton=t
     <Box
       sx={{
         height: '100%',
-        overflow: 'visable',
+        overflow: 'visible',
         paddingBottom: 5,
-        bg: 'text',
+        bg: 'black',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
