@@ -87,13 +87,17 @@ const CartItem = ({
       <div>
         <Link
           href={`/product/${item.variant.product.handle}/`}
-          sx={{ fontSize: 3, m: 0, fontWeight: 700 }}
+          sx={{
+            // fontSize: 3,
+            m: 0,
+            fontWeight: 700
+          }}
         >
           <>
             {item.title}
             <Text
               sx={{
-                fontSize: 4,
+                // fontSize: 4,
                 fontWeight: 700,
                 display: 'block',
                 marginLeft: 'auto',

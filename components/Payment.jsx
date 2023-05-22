@@ -5,6 +5,21 @@ import {
     useStripe,
     useElements
 } from "@stripe/react-stripe-js";
+import { Button } from '@builder.io/react'
+import Link from './common/Link'
+
+const buttonStyle = {
+  'background-color': 'black',
+  border: 'none',
+  color: 'white',
+  padding: '15px 32px',
+  'text-align': 'center',
+  'text-decoration': 'none',
+  'display': 'inline-block',
+  'font-size': '16px',
+  'margin': '4px 2px',
+  'cursor': 'pointer',
+}
 
 export default function Payment(props) {
     const stripe = useStripe();
@@ -36,7 +51,7 @@ export default function Payment(props) {
                     setMessage("Your payment is processing.");
                     break;
                 case "requires_payment_method":
-                    setMessage("Your payment was not successful, please try again.");
+                    setMessage("Please enter your payment method");
                     break;
                 default:
                     setMessage("Something went wrong.");
@@ -90,7 +105,7 @@ export default function Payment(props) {
             />
             <PaymentElement id="payment-element" options={paymentElementOptions} />
 
-            <button disabled={isLoading || !stripe || !elements} id="submit">
+            <button style={buttonStyle} disabled={isLoading || !stripe || !elements} id="submit">
         <span id="button-text">
           {isLoading ? <div className="spinner" id="spinner"></div> : "Pay now"}
         </span>
