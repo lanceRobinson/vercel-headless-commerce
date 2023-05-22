@@ -61,6 +61,7 @@
     "@theme-ui/presets": "0.15.5",
     "@types/shopify-buy": "2.10.3",
     "@types/traverse": "0.6.32",
+    "ably": "^1.2.5-beta.1",
     "cheerio": "1.0.0-rc.12",
     "js-cookie": "3.0.1",
     "next": "13.1.6",
@@ -71,6 +72,7 @@
     "react-spring": "^9.6.1",
     "shopify-buy": "2.16.1",
     "stripe": "^12.5.0",
+    "talkjs": "^0.16.0",
     "theme-ui": "0.15.5",
     "traverse": "0.6.7"
   },

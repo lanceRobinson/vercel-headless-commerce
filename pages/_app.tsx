@@ -3,6 +3,11 @@ import type { AppProps } from 'next/app'
 import Layout from '@components/common/Layout'
 import { builder, Builder } from '@builder.io/react'
 import builderConfig from '@config/builder'
+import Head from 'next/head'
+import dynamic from 'next/dynamic'
+
+const AblyChatComponent = dynamic(() => import('../components/chat/AblyChatComponent'), { ssr: false });
+
 builder.init(builderConfig.apiKey)
 
 import '@builder.io/widgets'
@@ -41,6 +46,7 @@ const Noop: FC<{ children: React.ReactNode }> = ({ children }) => (
 export default function MyApp({ Component, pageProps }: AppProps) {
   return (
     <Layout pageProps={pageProps}>
+      <AblyChatComponent />
       <Component {...pageProps} />
     </Layout>
   )
